@@ -20,8 +20,9 @@ body {
 	padding-bottom: 200px;
 }
 
-#LogContainer {
-	
+#RegContainer {
+	padding-top: 180px;
+	padding-bottom: 180px;
 }
 
 }
@@ -36,6 +37,11 @@ body {
 
 #AddContainer h3 {
 	font-weight: bold
+}
+
+.form-group.required .control-label:before {
+  content:"*";
+  color:red;
 }
 
 .bs-callout {
