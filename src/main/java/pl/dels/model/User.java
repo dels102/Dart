@@ -1,7 +1,10 @@
 package pl.dels.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -36,25 +40,15 @@ public class User implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String email;
 	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	private List<Role> roles;
-	@OneToMany
-	@JoinColumn(name = "user_id", referencedColumnName = "id_user")
-	private List<Post> posts;
+	private Set<Role> roles = new HashSet<>();
 
-	/*
-	 * @OneToOne
-	 * 
-	 * @JoinColumn(name = "id_details") private UserDetails details;
-	 */
-
-	User() {
+	public User() {
 	}
 
 	public User(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
-		this.email = email;
-	}
+		this.email = email;	}
 
 	public Long getId() {
 		return id;
@@ -88,26 +82,13 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public List<Role> getRoles() {
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
-	}
-
-	/*
-	 * public UserDetails getDetails() { return details; } public void
-	 * setDetails(UserDetails details) { this.details = details; }
-	 */
 
 	@Override
 	public int hashCode() {
@@ -116,7 +97,6 @@ public class User implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -146,11 +126,6 @@ public class User implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (posts == null) {
-			if (other.posts != null)
-				return false;
-		} else if (!posts.equals(other.posts))
-			return false;
 		if (roles == null) {
 			if (other.roles != null)
 				return false;
@@ -167,6 +142,6 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", roles="
-				+ roles + ", posts=" + posts + "]";
+				+ roles + "]";
 	}
 }
