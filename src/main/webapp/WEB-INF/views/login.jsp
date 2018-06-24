@@ -53,7 +53,7 @@
 										value="Zaloguj się">
 								</div>
 								<div class="form-group">
-									<a href="#">Zarejestruj</a>
+									<a href="${pageContext.request.contextPath}/register">Rejestracja</a>
 								</div>
 							</fieldset>
 						</form>
