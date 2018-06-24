@@ -1,11 +1,8 @@
 package pl.dels.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,13 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "user")
@@ -30,17 +23,16 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_user")
 	private Long id;
-	@NotEmpty
 	@Column(nullable = false, unique = true)
 	private String username;
-	@NotEmpty
 	@Column(nullable = false)
 	private String password;
-	@NotEmpty
 	@Column(nullable = false, unique = true)
 	private String email;
 	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
+	@OneToOne
+	private UserDetails details;
 
 	public User() {
 	}
@@ -48,7 +40,8 @@ public class User implements Serializable {
 	public User(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
-		this.email = email;	}
+		this.email = email;
+	}
 
 	public Long getId() {
 		return id;
@@ -90,10 +83,19 @@ public class User implements Serializable {
 		this.roles = roles;
 	}
 
+	public UserDetails getDetails() {
+		return details;
+	}
+
+	public void setDetails(UserDetails details) {
+		this.details = details;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((details == null) ? 0 : details.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -111,6 +113,11 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (details == null) {
+			if (other.details != null)
+				return false;
+		} else if (!details.equals(other.details))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -142,6 +149,6 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", roles="
-				+ roles + "]";
+				+ roles + ", details=" + details + "]";
 	}
 }
