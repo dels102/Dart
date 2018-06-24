@@ -35,7 +35,7 @@
 						<form accept-charset="UTF-8" role="form">
 							<fieldset>
 								<div class="form-group">
-									<input name="inputName" class="form-control"
+									<input name="inputTitle" class="form-control"
 										placeholder="Temat" required autofocus type="text">
 								</div>
 								<div class="form-group">
@@ -43,7 +43,7 @@
 										placeholder="URL" required autofocus />
 								</div>
 								<div class="form-group">
-									<textarea name="inputDescription" rows="5" name="inputUsername"
+									<textarea name="inputDescription" rows="5" name="inputContent"
 										class="form-control" placeholder="Opis" required autofocus></textarea>
 								</div>
 								<input class="btn btn-lg btn-basic btn-block" type="submit"
