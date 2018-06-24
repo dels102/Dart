@@ -36,8 +36,8 @@
 							action="register">
 							<fieldset>
 								<div class="form-group">
-									<input name = "username" class="form-control" placeholder="Nazwa użytkownika"
-										required autofocus type="text">
+									<input name="username" class="form-control"
+										placeholder="Nazwa użytkownika" required autofocus type="text">
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Hasło" name="password"
@@ -48,19 +48,23 @@
 										placeholder="Email" required autofocus />
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Imię" type="text"
-										autofocus>
-								</div>
-								<div class="form-group">
-									<input class="form-control" placeholder="Nazwisko" autofocus
-										type="text">
-								</div>
-								<div class="form-group">
-									<input class="form-control" placeholder="Numer telefonu"
+									<input name="firstName" class="form-control" placeholder="Imię"
 										autofocus type="text">
+								</div>
+								<div class="form-group">
+									<input name="lastName" class="form-control"
+										placeholder="Nazwisko" autofocus type="text">
+								</div>
+								<div class="form-group">
+									<input name="phoneNumber" class="form-control"
+										placeholder="Numer telefonu" autofocus type="text">
 								</div>
 								<input class="btn btn-lg btn-basic btn-block" type="submit"
 									value="Zarejestruj się">
+								<div class="form-group">
+									<a href="${pageContext.request.contextPath}">Strona główna</a>
+								</div>
+
 							</fieldset>
 						</form>
 					</div>
