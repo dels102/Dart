@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.dels.model.User;
@@ -35,11 +37,11 @@ public class UserController {
 	@PostMapping("/register")
 	public String addUser(@RequestParam String username, @RequestParam String password, @RequestParam String email,
 			@RequestParam String firstName, @RequestParam String lastName, @RequestParam String phoneNumber) {
-		
+
 		if (userService.checkDuplicate(username, email)) {
 			User user = new User(username, password, email);
 			userService.addWithDefaultRole(user);
-			
+
 			if (firstName != null || lastName != null || phoneNumber != null) {
 				UserDetails userDetails = new UserDetails(firstName, lastName, phoneNumber);
 				user.setDetails(userDetails);
