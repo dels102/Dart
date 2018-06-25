@@ -32,7 +32,7 @@
 						<h3 class="panel-title">Dodawanie wpisu</h3>
 					</div>
 					<div class="panel-body">
-						<form accept-charset="UTF-8" role="form">
+						<form accept-charset="UTF-8" role="form" method="post" action="add">
 							<fieldset>
 								<div class="form-group">
 									<input name="inputTitle" class="form-control"
@@ -43,8 +43,8 @@
 										placeholder="URL" required autofocus />
 								</div>
 								<div class="form-group">
-									<textarea name="inputDescription" rows="5" name="inputContent"
-										class="form-control" placeholder="Opis" required autofocus></textarea>
+									<textarea name="inputDescription" rows="5" class="form-control"
+										placeholder="Opis" required autofocus></textarea>
 								</div>
 								<input class="btn btn-lg btn-basic btn-block" type="submit"
 									value="Dodaj">

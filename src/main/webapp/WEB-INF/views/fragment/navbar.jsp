@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
@@ -25,9 +26,17 @@
 				</form>
 			</li>
 			<li><a href="${pageContext.request.contextPath}/register"><span
-					class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
-			<li><a href="${pageContext.request.contextPath}/login"><span
-					class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+					class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>							
+			<c:choose>
+            	<c:when test="${pageContext.request.contextPath}">
+            		<li><a href="${pageContext.request.contextPath}">Wyloguj się</a></li>
+            	</c:when>
+            	<c:otherwise>
+            		<li><a href="${pageContext.request.contextPath}/login">Zaloguj się</a></li>
+            	</c:otherwise>
+            </c:choose>
 		</ul>
 	</div>
 </nav>
+
+			

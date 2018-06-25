@@ -32,8 +32,7 @@
 						<h3 class="panel-title">Rejestracja</h3>
 					</div>
 					<div class="panel-body">
-						<form accept-charset="UTF-8" role="form" method="post"
-							action="register">
+						<form class="form-signin" method="post" action="${pageContext.request.contextPath}/register">
 							<fieldset>
 								<div class="form-group">
 									<input name="username" class="form-control"
