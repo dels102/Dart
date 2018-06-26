@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ import pl.dels.service.AddService;
 
 @Controller
 public class AddController {
-	
+
 	private AddService addService;
 
 	@Autowired
@@ -31,24 +32,22 @@ public class AddController {
 	public String addPost(@RequestParam String inputTitle, @RequestParam String inputUrl, String inputDescription) {
 
 		if (addService.checkDuplicate(inputTitle)) {
-			
-			Timestamp time = new Timestamp(new Date().getTime());		
-			
+			Timestamp time = new Timestamp(new Date().getTime());
 			Post post = new Post(inputTitle, inputUrl, inputDescription, time);
-			
 			addService.addPost(post);
-
+			String nameOfLoggedUser = SecurityContextHolder.getContext().getAuthentication().getName();
+			addService.updateUserWithPost(nameOfLoggedUser, post);
 			return "redirect:addOk";
 		} else {
 			return "redirect:addNoOk";
 		}
 	}
-	
+
 	@GetMapping("/addOk")
 	public String registerOk() {
 		return "addOk";
 	}
-	
+
 	@GetMapping("/addNoOk")
 	public String registerNoOk() {
 		return "addNoOk";
