@@ -10,7 +10,7 @@ import pl.dels.repository.UserRepository;
 
 @Service
 public class AddService {
-	
+
 	private PostRepository postRepository;
 	private UserRepository userRepository;
 
@@ -18,27 +18,29 @@ public class AddService {
 	public void setPostRepository(PostRepository postRepository) {
 		this.postRepository = postRepository;
 	}
-	
+
 	@Autowired
 	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	
-	public void addPost(Post post) {	
+
+	public void addPost(Post post) {
 		postRepository.save(post);
 	}
-	
-	public void updateUserWithPost(User user) {
+
+	public void updateUserWithPost(String username, Post post) {
+		User user = userRepository.findByUsername(username);
+		user.getPosts().add(post);
 		userRepository.save(user);
-	}	
-	
+	}
+
 	public boolean checkDuplicate(String title) {
-		boolean result = true;	
+		boolean result = true;
 		Post duplicatePost = postRepository.findByTitle(title);
-		if (duplicatePost != null) {		
-			result = false;		
+		if (duplicatePost != null) {
+			result = false;
 		}
 		return result;
 	}
-	
+
 }
