@@ -32,21 +32,36 @@
 						<h3 class="panel-title">Dodawanie wpisu</h3>
 					</div>
 					<div class="panel-body">
-						<form accept-charset="UTF-8" role="form" method="post" action="add">
+						<form accept-charset="UTF-8" role="form" method="post"
+							action="add">
 							<fieldset>
-								<div class="form-group">
-									<input name="inputTitle" class="form-control"
-										placeholder="Temat" required autofocus type="text">
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input name="inputTitle" class="form-control"
+												placeholder="Temat" required autofocus type="text">
+										</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<input name="inputUrl" type="url" class="form-control"
-										placeholder="URL" required autofocus />
+
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input name="inputUrl" type="url" class="form-control"
+												placeholder="URL" required autofocus />
+										</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<textarea name="inputDescription" rows="5" class="form-control"
-										placeholder="Opis" required autofocus></textarea>
+
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<textarea name="inputDescription" rows="5"
+												class="form-control" placeholder="Opis" required autofocus></textarea>
+										</div>
+									</div>
 								</div>
-								<input class="btn btn-lg btn-basic btn-block" type="submit"
+								<input class="btn btn-lg btn-success btn-block" type="submit"
 									value="Dodaj">
 							</fieldset>
 						</form>

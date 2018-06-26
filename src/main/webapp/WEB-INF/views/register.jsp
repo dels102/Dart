@@ -32,19 +32,33 @@
 						<h3 class="panel-title">Rejestracja</h3>
 					</div>
 					<div class="panel-body">
-						<form class="form-signin" method="post" action="${pageContext.request.contextPath}/register">
+						<form class="form-signin" method="post"
+							action="${pageContext.request.contextPath}/register">
 							<fieldset>
-								<div class="form-group">
-									<input name="username" class="form-control"
-										placeholder="Nazwa użytkownika" required autofocus type="text">
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input name="username" class="form-control"
+												placeholder="Nazwa użytkownika" required autofocus
+												type="text">
+										</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<input class="form-control" placeholder="Hasło" name="password"
-										type="password" required autofocus>
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input class="form-control" placeholder="Hasło"
+												name="password" type="password" required autofocus>
+										</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<input name="email" type="email" class="form-control"
-										placeholder="Email" required autofocus />
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input name="email" type="email" class="form-control"
+												placeholder="Email" required autofocus />
+										</div>
+									</div>
 								</div>
 								<div class="form-group">
 									<input name="firstName" class="form-control" placeholder="Imię"
@@ -58,12 +72,11 @@
 									<input name="phoneNumber" class="form-control"
 										placeholder="Numer telefonu" autofocus type="text">
 								</div>
-								<input class="btn btn-lg btn-basic btn-block" type="submit"
+								<input class="btn btn-lg btn-success btn-block" type="submit"
 									value="Zarejestruj się">
 								<div class="form-group">
 									<a href="${pageContext.request.contextPath}">Strona główna</a>
 								</div>
-
 							</fieldset>
 						</form>
 					</div>

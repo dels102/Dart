@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -35,21 +36,25 @@
 						<form accept-charset="UTF-8" role="form" method="post"
 							action="login">
 							<fieldset>
-								<div class="form-group">
-									<input class="form-control" name="username"
-										placeholder="Nazwa użytkownika" required autofocus type="text">
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input class="form-control" name="username"
+												placeholder="Nazwa użytkownika" required autofocus
+												type="text">
+										</div>
+									</div>
+								</div>
+								<div class="row" id="input">
+									<div class="form-group required">
+										<div class="col-md-11 ">
+											<input class="form-control" placeholder="Hasło"
+												name="password" type="password" required>
+										</div>
+									</div>
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Hasło" name="password"
-										type="password" required>
-								</div>
-								<div class="checkbox">
-									<label> <input name="remember" type="checkbox"
-										value="Remember Me"> Zapamiętaj
-									</label>
-								</div>
-								<div class="form-group">
-									<input class="btn btn-lg btn-basic btn-block" type="submit"
+									<input class="btn btn-lg btn-success btn-block" type="submit"
 										value="Zaloguj się">
 								</div>
 								<div class="form-group">
