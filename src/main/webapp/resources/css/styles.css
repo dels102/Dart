@@ -39,9 +39,21 @@ body {
 	font-weight: bold
 }
 
-.form-group.required .control-label:before {
-  content:"*";
-  color:red;
+#input {
+	padding-bottom: 15px;
+}
+
+#alert{
+	margin-left: 263px;
+	margin-right: 500px;
+}
+
+.required:after {
+	color: red;
+	content: '*';
+	margin-left: -10px;
+	margin-top: 8px;
+	position: absolute;
 }
 
 .bs-callout {
@@ -82,18 +94,18 @@ body {
 }
 
 .jumbotron {
-	background-image: url("./images/bg.jpg");
+	background-image: url("./images/bg3.jpg");
 	width: 1140px;
 }
 
 .jumbotron h1 {
 	color: #fff;
-	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px
+	text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px
 		0 #000;
 }
 
-.jumbotron p {
+.jumbotron h2 {
 	color: #fff;
-	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px
+	text-shadow: -4px -4px 0 #000, 4px -4px 0 #000, -4px 4px 0 #000, 4px 4px
 		0 #000;
 }
