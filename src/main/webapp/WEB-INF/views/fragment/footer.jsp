@@ -27,8 +27,8 @@
 			<div class="col-sm-3">
 				<h5>O nas</h5>
 				<ul>
-					<li><a href="#">Informacje</a></li>
-					<li><a href="#">Kontakt</a></li>
+					<li><a href="${pageContext.request.contextPath}/about">Informacje</a></li>
+					<li><a href="${pageContext.request.contextPath}/contact">Kontakt</a></li>
 				</ul>
 			</div>
 

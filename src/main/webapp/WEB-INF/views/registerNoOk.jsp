@@ -22,8 +22,6 @@
 
 <body>
 
-	<jsp:include page="fragment/navbar.jsp" />
-
 	<div class="alert alert-danger alert-dismissible" id="alert">
 		<a href="${pageContext.request.contextPath}/register" class="close"
 			data-dismiss="alert" aria-label="close">&times;</a> <strong>Rejestracja
@@ -32,8 +30,6 @@
 	</div>
 
 	<jsp:include page="index.jsp" />
-
-	<jsp:include page="fragment/footer.jsp" />
 
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

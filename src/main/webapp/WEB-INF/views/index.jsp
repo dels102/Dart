@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><!DOCTYPE html>
 <html>
 <head>
 <title>Dart</title>
@@ -26,135 +26,41 @@
 	<div class="container" id="HomeContainer">
 		<div class="jumbotron ">
 			<h1>Witamy w serwisie Dart!</h1>
-			<p>Dziel się treścią z branży elektronicznej ze społecznością
-				dodając znalezione w sieci artykuły.</p>
-		</div>
-
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
+			<div>
+				<h4>Dziel się treścią z branży elektronicznej ze społecznością
+					dodając znalezione w sieci artykuły.</h4>
 			</div>
 		</div>
 
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
-			</div>
-		</div>
+		<c:if test="${not empty allPosts}">
+			<c:forEach var="post" items="${allPosts}">
+				<div class="row bs-callout bs-callout-success">
+					<div class="col col-md-11 col-sm-10">
+						<h3 class="centered">
+							<a href="<c:out value="${post.url}" />"><c:out
+									value="${post.title}" /></a>
+						</h3>
+						<h6>
+							<small>Dodane przez: <c:out value="${post.user.username}" />,
+								Dnia: <fmt:formatDate value="${post.time}" pattern="dd/MM/YYYY" /></small>
+						</h6>
+						<p>
+							<c:out value="${post.description}" />
+						</p>
+						<a href="<c:out value="${post.url}" />"
+							class="btn btn-success btn-sm">Czytaj dalej...</a>
+						<c:choose>
+							<c:when
+								test="${pageContext['request'].userPrincipal.name == post.user.username}">
+								<a href="<c:url value="/removePost/${post.title}" />"
+									class="btn btn-danger btn-sm">Usuń</a>
+							</c:when>
+						</c:choose>
+					</div>
+				</div>
+			</c:forEach>
+		</c:if>
 
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
-			</div>
-		</div>
-
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
-			</div>
-		</div>
-
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
-			</div>
-		</div>
-
-		<div class="row bs-callout bs-callout-success">
-			<div class="col col-md-11 col-sm-10">
-				<h3 class="centered">
-					<a href="#">Artykuł</a>
-				</h3>
-				<h6>
-					<small>Dodane przez: Łukasz, Dnia: 3 marzec 2018</small>
-				</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-					amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				<button type="button" class="btn btn-success btn-sm">Czytaj
-					dalej...</button>
-			</div>
-		</div>
 	</div>
 
 	<jsp:include page="fragment/footer.jsp" />
