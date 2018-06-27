@@ -43,9 +43,22 @@ body {
 	padding-bottom: 15px;
 }
 
-#alert{
+#alert {
 	margin-left: 263px;
 	margin-right: 500px;
+}
+
+#AboutContainer {
+	margin-bottom: 350px;
+}
+
+#AboutContainerTitle {
+	margin-top: 150px;
+}
+
+#ContactContainer {
+	padding-top: 150px;
+	padding-bottom: 150px;
 }
 
 .required:after {
@@ -99,13 +112,14 @@ body {
 }
 
 .jumbotron h1 {
-	color: #fff;
-	text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px
-		0 #000;
+	color: black;
+	text-shadow: -3px -3px 0 #FFFFFF, 3px -3px 0 #FFFFFF, -3px 3px 0 #FFFFFF,
+		3px 3px 0 #FFFFFF;
 }
 
-.jumbotron h2 {
-	color: #fff;
-	text-shadow: -4px -4px 0 #000, 4px -4px 0 #000, -4px 4px 0 #000, 4px 4px
-		0 #000;
+.jumbotron h4 {
+	color: black;
+	text-shadow: -3px -3px 0 #FFFFFF, 3px -3px 0 #FFFFFF, -3px 3px 0 #FFFFFF,
+		3px 3px 0 #FFFFFF;
+}
 }
