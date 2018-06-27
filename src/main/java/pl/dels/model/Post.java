@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +28,9 @@ public class Post implements Serializable {
 	private String description;
 	@Column(nullable = false)
 	private Timestamp time;
-	//private List<String> tags;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	Post() {
 	}
@@ -36,11 +40,11 @@ public class Post implements Serializable {
 		this.url = url;
 		this.description = description;
 		this.time = time;
-		/*if (tags != null && tags.length() > 0) {
-			this.tags = Arrays.asList(tags.split(","));
-		} else {
-			this.tags = Collections.emptyList();
-		}*/
+		/*
+		 * if (tags != null && tags.length() > 0) { this.tags =
+		 * Arrays.asList(tags.split(",")); } else { this.tags = Collections.emptyList();
+		 * }
+		 */
 	}
 
 	public Long getId() {
@@ -83,6 +87,14 @@ public class Post implements Serializable {
 		this.time = time;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,6 +104,7 @@ public class Post implements Serializable {
 		result = prime * result + ((time == null) ? 0 : time.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -129,13 +142,17 @@ public class Post implements Serializable {
 				return false;
 		} else if (!url.equals(other.url))
 			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", title=" + title + ", url=" + url + ", description=" + description + ", time="
-				+ time + "]";
+				+ time + ", user=" + user + "]";
 	}
-	
 }
