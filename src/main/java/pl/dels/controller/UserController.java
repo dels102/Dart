@@ -1,5 +1,7 @@
 package pl.dels.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,16 +10,25 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import pl.dels.model.Post;
+import pl.dels.service.PostService;
 import pl.dels.service.UserService;
 
 @Controller
 public class UserController {
 
 	private UserService userService;
+	private PostService postService;
+
+	@Autowired
+	private void setPostService(PostService addService) {
+		this.postService = addService;
+	}
 
 	@Autowired
 	private void setUserService(UserService userService) {
@@ -56,12 +67,16 @@ public class UserController {
 	}
 
 	@GetMapping("/success")
-	private String registerOk() {
+	private String registerOk(Model model) {
+		List<Post> allPosts = postService.getAllPosts((d1, d2) -> d2.getTime().compareTo(d1.getTime()));
+		model.addAttribute("allPosts", allPosts);
 		return "registerOk";
 	}
 
 	@GetMapping("/problem")
-	private String registerNoOk() {
+	private String registerNoOk(Model model) {
+		List<Post> allPosts = postService.getAllPosts((d1, d2) -> d2.getTime().compareTo(d1.getTime()));
+		model.addAttribute("allPosts", allPosts);
 		return "registerNoOk";
 	}
 }

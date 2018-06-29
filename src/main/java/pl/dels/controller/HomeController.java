@@ -45,7 +45,9 @@ public class HomeController {
 	}
 
 	@GetMapping("/contactOk")
-	private String contactOk() {
+	private String contactOk(Model model) {
+		List<Post> allPosts = postService.getAllPosts((d1, d2) -> d2.getTime().compareTo(d1.getTime()));
+		model.addAttribute("allPosts", allPosts);
 		return "contactOk";
 	}
 }
