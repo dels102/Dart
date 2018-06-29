@@ -49,16 +49,18 @@ body {
 }
 
 #AboutContainer {
+	margin-top: 150px;
 	margin-bottom: 350px;
 }
 
-#AboutContainerTitle {
-	margin-top: 150px;
-}
-
 #ContactContainer {
+	background-image: url("./images/bg1.jpg");
 	padding-top: 150px;
 	padding-bottom: 150px;
+}
+
+#BodyMain {
+	background-color: #F5F5F5;
 }
 
 .required:after {
