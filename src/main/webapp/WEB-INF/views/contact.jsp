@@ -19,7 +19,7 @@
 	type="text/css" rel="stylesheet">
 </head>
 
-<body>
+<body id="bodyBack">
 
 	<jsp:include page="fragment/navbar.jsp" />
 
@@ -36,15 +36,16 @@
 								<label class="col-md-3 control-label" for="name">Imię</label>
 								<div class="col-md-9">
 									<input id="name" name="name" type="text"
-										placeholder="Wpisz imię" class="form-control">
+										placeholder="Wpisz imię" class="form-control" required
+										autofocus>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="email">Email</label>
 								<div class="col-md-9">
-									<input id="email" name="email" type="text"
-										placeholder="Podaj swój email" class="form-control">
+									<input id="email" name="email" placeholder="Podaj swój email"
+										class="form-control" type="email" required autofocus>
 								</div>
 							</div>
 
@@ -52,7 +53,7 @@
 								<label class="col-md-3 control-label" for="message">Wiadomość</label>
 								<div class="col-md-9">
 									<textarea class="form-control" id="message" name="message"
-										placeholder="Co chcesz wiedzieć?" rows="5"></textarea>
+										placeholder="Co chcesz wiedzieć?" required autofocus rows="5"></textarea>
 								</div>
 							</div>
 

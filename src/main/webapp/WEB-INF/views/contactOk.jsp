@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><!DOCTYPE html>
 <html>
-
 <head>
 <title>Dart</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +24,7 @@
 	<div class="alert alert-success alert-dismissible" id="alert">
 		<a href="${pageContext.request.contextPath}" class="close"
 			data-dismiss="alert" aria-label="close">&times;</a> <strong>Formularz
-			został wysłany!</strong>
+			został wysłany! Odpowiemy wkrótce.</strong>
 	</div>
 
 	<jsp:include page="index.jsp" />
