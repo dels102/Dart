@@ -1,0 +1,1 @@
+insert into role(role_name, description) VALUES ("ROLE_USER", "default role for user");
