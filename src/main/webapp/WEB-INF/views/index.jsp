@@ -19,19 +19,18 @@
 	type="text/css" rel="stylesheet">
 </head>
 
-<body>
+<body id="BodyMain">
 
 	<jsp:include page="fragment/navbar.jsp" />
 
 	<div class="container" id="HomeContainer">
-		<div class="jumbotron ">
+		<div class="jumbotron">
 			<h1>Witamy w serwisie Dart!</h1>
 			<div>
 				<h4>Dziel się treścią z branży elektronicznej ze społecznością
 					dodając znalezione w sieci artykuły.</h4>
 			</div>
 		</div>
-
 		<c:if test="${not empty allPosts}">
 			<c:forEach var="post" items="${allPosts}">
 				<div class="row bs-callout bs-callout-success">
@@ -60,7 +59,6 @@
 				</div>
 			</c:forEach>
 		</c:if>
-
 	</div>
 
 	<jsp:include page="fragment/footer.jsp" />
