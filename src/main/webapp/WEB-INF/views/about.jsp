@@ -19,29 +19,24 @@
 	type="text/css" rel="stylesheet">
 </head>
 
-<body>
+<body id="bodyBack">
 
 	<jsp:include page="fragment/navbar.jsp" />
 
-	<div class="blog-header">
-		<div class="container" id="AboutContainerTitle">
-			<h1 class="blog-title">Dart</h1>
-			<p class="lead blog-description">Serwis do dzielenia się treścią
-				z branży elektronicznej.</p>
-		</div>
-	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 blog-main">
 				<div class="blog-post" id="AboutContainer">
-					<p>Serwis powstał z myślą o społeczności zainteresowanej branżą
-						elektroniczną. Użytkownicy serwisu mogą zamieszczać w nim posty w
-						postaci linków z tytułem i opisem. Dzięki takiemu rozwiązaniu
-						wszystkie artykuły dotyczące tej tematyki znajdziemy w jednym
-						miejscu. Czytelnicy niezarejestrowani na stronie mogą korzystać z
-						zamieszczonych na stronie odnośników. Jeśli jednak chcieli by
-						współtworzyć kompedium wiedzy muszą założyć konto w serwisie i się
-						zalogować.</p>
+					<div class="well">
+						<h4>Serwis powstał z myślą o społeczności zainteresowanej
+							branżą elektroniczną. Użytkownicy serwisu mogą zamieszczać w nim
+							posty w postaci linków z tytułem i opisem. Dzięki takiemu
+							rozwiązaniu wszystkie artykuły dotyczące tej tematyki znajdziemy
+							w jednym miejscu. Czytelnicy niezarejestrowani w serwisie mogą
+							korzystać z zamieszczonych na stronie odnośników. Jeśli jednak
+							chcieli by współtworzyć kompedium wiedzy muszą założyć konto w
+							serwisie i się zalogować.</h4>
+					</div>
 				</div>
 			</div>
 		</div>
