@@ -1,6 +1,6 @@
 # Dart
-Website for sharing content from the electronics industry.
+Website for sharing content from the electronics industry (created for thesis). 
 
-Application presents basic functionalities of the object-relational mapping technique on the example of Hibernate Framework.
+Application presents functionalities of the object-relational mapping technique on the example of Hibernate Framework.
 
-I used: Java, JSP, Spring, Hibernate, MySQL, Bootstrap, Tomcat, Spring Tool Suite, Maven.
+I used: Java, JSP, HTML, CSS, Spring, Hibernate, MySQL, Bootstrap, Tomcat.
