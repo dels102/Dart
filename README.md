@@ -3,4 +3,6 @@ Web application for sharing content from the electronics area (created for thesi
 
 Application presents functionalities of the object-relational mapping technique on the example of Hibernate Framework.
 
-I used: Java 8, JSP, HTML, CSS, Bootstrap, Spring, Hibernate, MySQL, Tomcat.
+Backend: Java 8, Spring, Hibernate, MySQL.
+
+Frontend: JSP, HTML, CSS, Bootstrap.
